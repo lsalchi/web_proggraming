@@ -1,0 +1,14 @@
+$ gnome-shell-extension-tool --create-extension
+Name: Do Not Disturb Time
+Description: Disables notifications and sound for a period
+Uuid: dnd@catbo.net
+Created extension in '~/.local/share/gnome-shell/extensions/dnd@catbo.net'
+
+# перегружаем gnome-shell
+Alt+F2, r, Enter
+# включаем расширение в https://extensions.gnome.org/local/ в браузере и видим результат
+
+# смотреть логи Gnome Shell - очевидно, gnome-shell процесс управляется systemd, пользовательский режим
+journalctl -f /usr/bin/gnome-shell
+# чтобы подсветить свои ошибки, но выводить все равно все ошибки gnome-shell
+journalctl -f /usr/bin/gnome-shell | grep -E 'dnd|$'
