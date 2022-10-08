@@ -1,14 +1,107 @@
-$ gnome-shell-extension-tool --create-extension
-Name: Do Not Disturb Time
-Description: Disables notifications and sound for a period
-Uuid: dnd@catbo.net
-Created extension in '~/.local/share/gnome-shell/extensions/dnd@catbo.net'
+#include <iostream>
+#include <vector>
+#include<list>
 
-# перегружаем gnome-shell
-Alt+F2, r, Enter
-# включаем расширение в https://extensions.gnome.org/local/ в браузере и видим результат
+// kr 10
 
-# смотреть логи Gnome Shell - очевидно, gnome-shell процесс управляется systemd, пользовательский режим
-journalctl -f /usr/bin/gnome-shell
-# чтобы подсветить свои ошибки, но выводить все равно все ошибки gnome-shell
-journalctl -f /usr/bin/gnome-shell | grep -E 'dnd|$'
+using namespace std;
+
+
+class One
+{
+
+public:
+   
+
+    One()
+    {
+
+    }
+
+    One(const One& o) {
+       
+    }
+
+
+
+    virtual ~One()
+    {
+    
+
+    }
+
+
+
+};
+
+
+class Two : One
+{
+
+public:
+
+
+
+    Two()
+    {
+
+    }
+
+
+ 
+
+    Two(const Two& obj) :One(obj) {
+
+        
+        
+
+    }
+
+    virtual ~Two()
+    {
+    }
+
+
+
+};
+
+class Three : Two
+{
+public:
+
+    list<vector<string *>*> ls;
+    double* d;
+
+
+    Three()
+    {
+
+    }
+
+
+
+    Three(const Three& obj) :Two(obj) {
+
+
+        for (auto it = obj.ls.begin(); it != obj.ls.end(); ++it) {
+            d = new double;
+            *d = *obj.d;
+      
+            vector<string*>* v = new vector<string*>;
+            *v = **it;
+            ls.push_back(v);
+
+
+        }
+
+
+    }
+
+
+    ~Three()
+    {
+      
+    }
+
+
+};
